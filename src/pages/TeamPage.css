@@ -1,0 +1,400 @@
+/* TeamPage.css - Team registration styles */
+
+.team-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 20px;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: #ffd700;
+}
+
+/* ===== HEADER FIX ===== */
+/* Prevents text cutoff for descenders (g, j, p, q, y) */
+.page-header h1 {
+  flex: 1;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #ffd700, #ffed4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.4;
+  padding: 5px 0 8px 0;
+  overflow: visible;
+}
+
+.team-stats {
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+/* Add Team Button */
+.add-team-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 30px;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-team-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Form */
+.team-form-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-form-container h2 {
+  color: #ffd700;
+  margin-bottom: 25px;
+}
+
+.team-form {
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="color"] {
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input[type="color"] {
+  height: 50px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.logo-upload {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-preview, .logo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 2px dashed rgba(255, 215, 0, 0.3);
+}
+
+.logo-preview {
+  object-fit: cover;
+}
+
+#logo-input {
+  display: none;
+}
+
+.upload-label {
+  padding: 10px 20px;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 10px;
+  color: #ffd700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.upload-label:hover {
+  background: rgba(255, 215, 0, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.submit-btn, .cancel-btn {
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+  border: none;
+  color: #0a0a1a;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* Table */
+.teams-table-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.teams-table-container h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.teams-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.teams-table th {
+  text-align: left;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffd700;
+}
+
+.teams-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.table-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.color-preview {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edit-btn {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.delete-btn {
+  background: rgba(255, 87, 87, 0.3);
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Team Cards Preview */
+.team-cards-preview {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.team-cards-preview h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-team-name {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-motto {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Save Button */
+.save-db-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 18px 30px;
+  background: linear-gradient(45deg, #ffd700, #ffed4a);
+  border: none;
+  border-radius: 50px;
+  color: #0a0a1a;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.save-db-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-state span {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-wrap: wrap;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .teams-table {
+    font-size: 0.8rem;
+  }
+  
+  .teams-table th, .teams-table td {
+    padding: 10px 5px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,220 @@
+/* LoginSection.css - Glass morphism login styles */
+
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.login-title {
+  font-size: 2rem;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Quick Access Buttons */
+.quick-access {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.quick-btn {
+  flex: 1;
+  padding: 15px 10px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.quick-btn.main {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.quick-btn.main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.quick-btn.test {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+}
+
+.quick-btn.test:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(245, 87, 108, 0.6);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.btn-icon {
+  font-size: 1.8rem;
+}
+
+.btn-text {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.quick-btn small {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+}
+
+.divider span {
+  background: rgba(26, 26, 58, 0.8);
+  padding: 0 20px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.glass-input {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  border-color: #ffd700;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.error-message {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 10px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  padding: 15px;
+  background: linear-gradient(45deg, #ffd700, #ffed4a);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a1a;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #ffd700;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 0 5px;
+}
+
+.toggle-btn:hover {
+  color: #ffed4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 25px;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+  }
+  
+  .quick-access {
+    flex-direction: column;
+  }
+  
+  .quick-btn {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,255 @@
+/* DashboardPage.css - Admin dashboard styles */
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 20px;
+  position: relative;
+  padding-bottom: 80px; /* Space for fixed reset button */
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ===== HEADER FIX ===== */
+/* Prevents text cutoff for descenders (g, j, p, q, y) */
+.header-left h1 {
+  font-size: 2rem;
+  background: linear-gradient(45deg, #ffd700, #ffed4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.4;
+  padding: 5px 0 8px 0;
+  overflow: visible;
+}
+
+.season-tag {
+  padding: 5px 15px;
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 20px;
+  color: #ffd700;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 100, 100, 0.3);
+  border-color: #ff6b6b;
+}
+
+/* Reset Button - Fixed Bottom Right */
+.reset-button-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+  z-index: 100;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button-fixed:hover {
+  background: rgba(255, 193, 7, 0.2);
+  border-color: #ffd700;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.reset-button-fixed.confirm-mode {
+  background: rgba(255, 87, 87, 0.8);
+  border-color: #ff5757;
+  animation: pulseWarning 1s infinite;
+}
+
+@keyframes pulseWarning {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 5px 20px rgba(255, 87, 87, 0.3);
+  }
+  50% { 
+    opacity: 0.8;
+    box-shadow: 0 5px 40px rgba(255, 87, 87, 0.6);
+  }
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.dashboard-card {
+  position: relative;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--card-color);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--card-color);
+}
+
+.card-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: white;
+  margin: 0;
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.dashboard-card:hover .card-shine {
+  left: 100%;
+}
+
+/* Quick Stats */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .reset-button-fixed {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+}
