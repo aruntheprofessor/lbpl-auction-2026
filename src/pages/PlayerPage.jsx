@@ -1,10 +1,12 @@
 // PlayerPage.jsx - Player registration with CRUD operations
 import React, { useState, useEffect } from 'react';
 import { getPlayers, createPlayer, updatePlayer, deletePlayer, saveAllPlayers } from '../services/playerService';
+import { getCategories } from '../services/auctionService';
 import './PlayerPage.css';
 
 const PlayerPage = ({ onBack }) => {
   const [players, setPlayers] = useState([]);
+  const [categories, setCategories] = useState([]); // ← FIXED: Now from database
   const [editingPlayer, setEditingPlayer] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -17,18 +19,31 @@ const PlayerPage = ({ onBack }) => {
     age: '',
     skill: '',
     achievements: '',
-    category: 'A',
+    category: '',
     basePrice: '',
     image: null
   });
 
-  const categories = ['A+', 'A', 'B', 'C', 'D'];
   const skillLevels = ['Beginner', 'Intermediate', 'Advanced', 'Professional'];
 
-  // Load players on page load
+  // Load players and categories on page load
   useEffect(() => {
     loadPlayers();
+    loadCategories(); // ← FIXED: Load categories from database
   }, []);
+
+  // ← FIXED: New function to load categories from database
+  const loadCategories = async () => {
+    const result = await getCategories();
+    if (result.success && result.data) {
+      const catNames = result.data.map(cat => cat.category_name);
+      setCategories(catNames);
+      // Set default category to first one if available
+      if (catNames.length > 0 && !formData.category) {
+        setFormData(prev => ({ ...prev, category: catNames[0] }));
+      }
+    }
+  };
 
   const loadPlayers = async () => {
     setLoading(true);
@@ -104,7 +119,7 @@ const PlayerPage = ({ onBack }) => {
       age: '',
       skill: '',
       achievements: '',
-      category: 'A',
+      category: categories.length > 0 ? categories[0] : '', // ← FIXED: Use first category from DB
       basePrice: '',
       image: null
     });
@@ -170,13 +185,15 @@ const PlayerPage = ({ onBack }) => {
       return 0;
     });
 
-  // Statistics
+  // Statistics - FIXED: Use dynamic categories
   const stats = {
     total: players.length,
-    byCategory: categories.reduce((acc, cat) => {
-      acc[cat] = players.filter(p => p.category === cat).length;
-      return acc;
-    }, {})
+    byCategory: categories.length > 0 
+      ? categories.reduce((acc, cat) => {
+          acc[cat] = players.filter(p => p.category === cat).length;
+          return acc;
+        }, {})
+      : {}
   };
 
   if (loading && players.length === 0) {
@@ -202,7 +219,7 @@ const PlayerPage = ({ onBack }) => {
         </div>
       </header>
 
-      {/* Filters */}
+      {/* Filters - FIXED: Uses dynamic categories */}
       <div className="filters-bar">
         <div className="filter-group">
           <label>Category:</label>
@@ -229,7 +246,7 @@ const PlayerPage = ({ onBack }) => {
         </button>
       </div>
 
-      {/* Category Stats */}
+      {/* Category Stats - FIXED: Uses dynamic categories */}
       <div className="category-stats">
         {categories.map(cat => (
           stats.byCategory[cat] > 0 && (
@@ -269,7 +286,7 @@ const PlayerPage = ({ onBack }) => {
                     onChange={handleInputChange}
                     placeholder="e.g., 25"
                     disabled={loading}
-                    />
+                  />
                 </div>
               </div>
 
@@ -284,9 +301,11 @@ const PlayerPage = ({ onBack }) => {
                   </select>
                 </div>
 
+                {/* FIXED: Category dropdown uses dynamic categories */}
                 <div className="form-group">
                   <label>Category *</label>
                   <select name="category" value={formData.category} onChange={handleInputChange} required disabled={loading}>
+                    <option value="">Select Category</option>
                     {categories.map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
                     ))}
@@ -309,14 +328,14 @@ const PlayerPage = ({ onBack }) => {
               <div className="form-row">
                 <div className="form-group">
                   <label>Base Price (₹)</label>
-                <input
+                  <input
                     type="number"
                     name="basePrice"
                     value={formData.basePrice}
                     onChange={handleInputChange}
                     placeholder="e.g., 1500"
                     disabled={loading}
-                    />
+                  />
                 </div>
 
                 <div className="form-group">
@@ -371,7 +390,6 @@ const PlayerPage = ({ onBack }) => {
             </thead>
             <tbody>
               {filteredAndSortedPlayers.map((player, index) => {
-                const originalIndex = players.findIndex(p => p.id === player.id);
                 return (
                   <tr key={player.id}>
                     <td>
