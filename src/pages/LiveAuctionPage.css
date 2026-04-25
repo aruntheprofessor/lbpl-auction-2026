@@ -690,3 +690,108 @@
     font-size: 11px;
   }
 }
+
+
+/* ============================================ */
+/* FULL SCREEN SOLD/UNSOLD OVERLAY               */
+/* ============================================ */
+.sold-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.sold-text {
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  animation: soldPopIn 1.5s ease-out forwards;
+  text-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4);
+}
+
+.sold-text.gold {
+  color: #ffd700;
+}
+
+.sold-text.red {
+  color: #ef4444;
+  text-shadow: 0 0 50px rgba(239, 68, 68, 0.8), 0 0 100px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes soldPopIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Player name subtitle under SOLD */
+.sold-subtitle {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  z-index: 9999;
+  pointer-events: none;
+  animation: soldSubFade 1.5s ease-out forwards;
+  text-align: center;
+}
+
+@keyframes soldSubFade {
+  0% { opacity: 0; transform: translate(-50%, -50%) translateY(20px); }
+  20% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Background flash */
+.sold-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+  pointer-events: none;
+  animation: flashBg 0.8s ease-out forwards;
+}
+
+.sold-flash.gold {
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.sold-flash.red {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@keyframes flashBg {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
