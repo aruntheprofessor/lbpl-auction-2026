@@ -1,150 +1,127 @@
-/* LiveAuctionPage.css - Premium IPL-Style Auction UI */
+/* LiveAuctionPage.css - Clean Full Viewport Design */
 
-/* === Core Setup === */
-.live-auction-page {
-  min-height: 100vh;
-  background: radial-gradient(ellipse at center, #0d1124 0%, #070911 100%);
-  padding: 20px;
-  font-family: 'Poppins', 'Inter', sans-serif;
-  color: #ffffff;
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* === Loading Screen === */
-.loading-screen {
+.live-auction-page {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #0a0e1a;
+  color: #ffffff;
+  font-family: 'Poppins', 'Inter', sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+/* === LOADING === */
+.loading-screen {
+  height: 100vh;
+  display: flex;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
   font-size: 2rem;
   color: #ffd700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
-/* === HEADER (Glassmorphism) === */
+/* ============================================ */
+/* HEADER BAR - Thin, Clean                      */
+/* ============================================ */
 .auction-header {
+  height: 60px;
+  min-height: 60px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 15px 30px;
-  background: rgba(20, 25, 50, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  margin-bottom: 25px;
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #111827;
+  border-bottom: 2px solid #ffd700;
 }
 
 .back-btn, .summary-btn {
-  padding: 12px 25px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  color: #ccc;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #aaa;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
 .back-btn:hover, .summary-btn:hover {
-  background: rgba(255, 215, 0, 0.15);
   border-color: #ffd700;
   color: #ffd700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-  transform: translateY(-2px);
 }
 
 .auction-header h1 {
-  flex: 1;
-  text-align: center;
-  font-size: 2.8rem;
-  font-weight: 800;
-  background: linear-gradient(180deg, #ffd700 0%, #ffaa00 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffd700;
   letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
 }
 
 .category-badge {
-  font-size: 1.4rem;
-  padding: 8px 20px;
-  background: rgba(255, 215, 0, 0.2);
-  border-radius: 40px;
+  font-size: 14px;
+  padding: 4px 14px;
+  background: rgba(255,215,0,0.15);
+  border-radius: 20px;
   color: #ffd700;
-  -webkit-text-fill-color: #ffd700;
-  border: 1px solid rgba(255, 215, 0, 0.4);
-  font-weight: 700;
+  margin-left: 10px;
 }
 
-/* === INSTRUCTIONS SCREEN === */
+/* ============================================ */
+/* INSTRUCTIONS OVERLAY                          */
+/* ============================================ */
 .instructions-container {
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 30px;
+  justify-content: center;
 }
 
 .instruction-slide {
-  background: rgba(20, 25, 50, 0.7);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-radius: 40px;
-  padding: 50px;
-  max-width: 1100px;
-  width: 100%;
-  border: 1px solid rgba(255, 215, 0, 0.2);
   text-align: center;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+  max-width: 800px;
+  padding: 40px;
 }
 
 .instruction-slide h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #ffd700;
-  margin-bottom: 40px;
-  font-weight: 800;
+  margin-bottom: 30px;
 }
 
 .teams-preview-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
 .team-preview-card {
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 24px;
-  padding: 25px;
+  background: #1a1f2e;
+  border-radius: 12px;
+  padding: 15px;
   border: 2px solid;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.team-preview-card:hover {
-  transform: translateY(-8px);
 }
 
 .team-preview-logo {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 20px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: #222;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
   overflow: hidden;
-  border: 2px solid rgba(255, 215, 0, 0.3);
 }
 
 .team-preview-logo img {
@@ -153,101 +130,232 @@
   object-fit: cover;
 }
 
-.rules-list li {
-  padding: 18px;
-  margin: 12px 0;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  font-size: 1.3rem;
-  list-style: none;
-  border-left: 5px solid #ffd700;
+.team-preview-card h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
-/* === CATEGORY SELECTOR === */
+.team-preview-card p {
+  font-size: 12px;
+  color: #888;
+}
+
+.rules-list {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.rules-list li {
+  padding: 12px 16px;
+  margin: 6px 0;
+  background: #1a1f2e;
+  border-radius: 8px;
+  font-size: 15px;
+  border-left: 3px solid #ffd700;
+}
+
+.instruction-nav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.instruction-nav button {
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #333;
+  background: #1a1f2e;
+  color: #fff;
+}
+
+.instruction-nav .start-btn {
+  background: #ffd700;
+  color: #000;
+  border: none;
+}
+
+/* ============================================ */
+/* CATEGORY SELECTION                            */
+/* ============================================ */
+.category-selector {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.category-selector h2 {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 30px;
+}
+
 .category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .category-btn {
-  padding: 40px 20px;
-  background: rgba(20, 25, 50, 0.6);
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 215, 0, 0.25);
-  border-radius: 28px;
+  padding: 30px 30px;
+  background: #1a1f2e;
+  border: 2px solid #333;
+  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  transition: all 0.2s;
+  text-align: center;
+  min-width: 160px;
 }
 
 .category-btn:hover {
-  transform: translateY(-10px) scale(1.03);
   border-color: #ffd700;
-  background: rgba(255, 215, 0, 0.1);
-  box-shadow: 0 30px 40px rgba(255, 215, 0, 0.3);
+  background: #222840;
 }
 
 .cat-name {
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #ffd700;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  display: block;
 }
 
-/* === MAIN AUCTION LAYOUT === */
-.auction-mode .auction-main {
-  display: flex;
-  gap: 25px;
-  height: calc(100vh - 140px);
+.cat-base, .cat-inc {
+  font-size: 13px;
+  color: #aaa;
+  display: block;
+  margin-top: 4px;
 }
 
-/* === LEFT TEAMS PANEL === */
-.teams-panel {
-  width: 22%;
-  background: rgba(20, 25, 50, 0.5);
-  backdrop-filter: blur(25px);
-  border-radius: 28px;
-  padding: 25px 15px;
-  border: 1px solid rgba(255, 215, 0, 0.15);
+.unsold-round-btn {
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: #e74c3c;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ============================================ */
+/* START AUCTION SCREEN                          */
+/* ============================================ */
+.start-auction-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+.category-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.category-info h2 {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.category-info p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 8px 0;
+}
+
+.start-auction-btn {
+  padding: 18px 50px;
+  background: #10b981;
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.start-auction-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* MAIN AUCTION LAYOUT - 3 Columns, Full Height  */
+/* ============================================ */
+.auction-mode .auction-main {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  height: calc(100vh - 60px);
+}
+
+/* ---- LEFT TEAMS PANEL ---- */
+.teams-panel {
+  width: 18%;
+  min-width: 180px;
+  background: #111827;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #222;
+}
+
+.teams-panel h3 {
+  color: #ffd700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.teams-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .team-purse-card {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  margin-bottom: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 18px;
-  border-left: 6px solid;
-  transition: all 0.4s ease;
+  gap: 10px;
+  padding: 10px;
+  background: #1a1f2e;
+  border-radius: 10px;
+  border-left: 4px solid;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .team-purse-card.active {
-  background: rgba(255, 215, 0, 0.2);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-  transform: scale(1.02);
+  background: #222840;
+  border-left-color: #ffd700 !important;
+  box-shadow: 0 0 15px rgba(255,215,0,0.2);
 }
 
 .team-logo-small {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #222;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .team-logo-small img {
@@ -256,85 +364,186 @@
   object-fit: cover;
 }
 
-/* === PLAYER DISPLAY (Right/Center) === */
+.team-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-name-small {
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-purse-amount {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.players-left {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+  background: #1a1f2e;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #aaa;
+  font-weight: 600;
+}
+
+/* ---- CENTER PLAYER PANEL ---- */
 .player-panel {
-  width: 78%;
-  background: rgba(20, 25, 50, 0.5);
-  backdrop-filter: blur(25px);
-  border-radius: 28px;
-  padding: 30px;
-  border: 1px solid rgba(255, 215, 0, 0.15);
+  flex: 1;
+  padding: 24px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+}
+
+.player-display {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .player-image-container {
-  width: 230px;
-  height: 230px;
-  border-radius: 28px;
-  background: rgba(0,0,0,0.5);
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  background: #1a1f2e;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 4px solid #ffd700;
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+  border: 3px solid #ffd700;
+  flex-shrink: 0;
 }
 
-/* === BIDDING GRID (TEAM BUTTONS) === */
+.player-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-image-placeholder {
+  font-size: 4rem;
+}
+
+.player-details h2 {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.player-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.player-meta span {
+  padding: 6px 14px;
+  background: #1a1f2e;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.player-category-tag {
+  background: #ffd700 !important;
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.player-achievements {
+  color: #999;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.base-price-display {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* ---- CURRENT BID BOX ---- */
+.current-bid-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #1a1f2e;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.bid-label {
+  font-size: 14px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bid-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffd700;
+}
+
+.bidding-team {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---- BIDDING GRID (4x2) ---- */
 .bidding-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin: 30px 0;
+  gap: 10px;
   flex: 1;
+  align-content: start;
 }
 
 .team-bid-btn {
-  padding: 25px 15px !important;
-  background: rgba(15, 20, 40, 0.7);
-  backdrop-filter: blur(10px);
-  border: 3px solid !important;
-  border-radius: 24px !important;
+  padding: 14px 8px;
+  background: #1a1f2e;
+  border: 2px solid;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
+  gap: 6px;
 }
 
 .team-bid-btn:hover:not(:disabled) {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  z-index: 10;
+  background: #222840;
+  transform: translateY(-2px);
 }
 
-.team-bid-btn.winning {
-  border-color: #ffd700 !important;
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4) !important;
-  background: rgba(255, 215, 0, 0.25) !important;
-  animation: pulseGold 1.2s ease-in-out infinite;
-}
-
-@keyframes pulseGold {
-  0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); }
-  50% { box-shadow: 0 0 70px rgba(255, 215, 0, 1.0); }
+.team-bid-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .team-bid-logo {
-  width: 110px !important;
-  height: 110px !important;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 3px solid rgba(255, 215, 0, 0.4);
-  transition: border-color 0.3s;
+  border: 2px solid #333;
 }
 
 .team-bid-logo img {
@@ -344,53 +553,140 @@
 }
 
 .team-bid-name {
-  font-weight: 700;
-  font-size: 1.1rem !important;
-  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .team-bid-purse {
-  color: #ffd700;
-  font-weight: 800;
-  font-size: 1rem;
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 600;
 }
 
-/* === CURRENT BID DISPLAY === */
-.current-bid-box {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 180, 0, 0.1));
-  border: 3px solid #ffd700;
-  border-radius: 24px;
-  padding: 20px 40px !important;
+/* ---- ACTION BUTTONS ---- */
+.auction-actions {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 16px;
 }
 
-.bid-amount {
-  font-size: 5rem !important;
-  font-weight: 900;
-  color: #ffd700;
-  text-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+.sold-btn, .unsold-btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-/* === SOLD/UNSOLD BUTTONS === */
 .sold-btn {
-  background: linear-gradient(45deg, #00e676, #00c853);
-  color: #000;
-  font-weight: 900;
-  font-size: 1.5rem;
-  border-radius: 60px;
-  padding: 20px 50px;
-  box-shadow: 0 0 40px rgba(0, 230, 118, 0.5);
+  background: #10b981;
+  color: #fff;
 }
 
 .unsold-btn {
-  background: linear-gradient(45deg, #ff5252, #d50000);
-  color: white;
-  font-weight: 900;
-  font-size: 1.5rem;
-  border-radius: 60px;
-  padding: 20px 50px;
-  box-shadow: 0 0 40px rgba(255, 82, 82, 0.5);
+  background: #ef4444;
+  color: #fff;
+}
+
+.sold-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* SUMMARY VIEW                                  */
+/* ============================================ */
+.teams-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.team-summary-card {
+  background: #1a1f2e;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid;
+}
+
+.team-summary-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.team-players-list {
+  padding: 10px 15px;
+}
+
+.sold-player-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid #222;
+}
+
+.sold-price {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.summary-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.stat-item strong {
+  color: #ffd700;
+  font-size: 1.8rem;
+}
+
+/* ============================================ */
+/* SCROLLBAR                                     */
+/* ============================================ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+/* ============================================ */
+/* RESPONSIVE - Smaller Screens                   */
+/* ============================================ */
+@media (max-width: 1200px) {
+  .teams-panel {
+    width: 22%;
+    min-width: 150px;
+  }
+  
+  .bidding-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .team-bid-logo {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .team-bid-name {
+    font-size: 11px;
+  }
 }
